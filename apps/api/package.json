@@ -1,0 +1,35 @@
+{
+    "name": "@diario/api",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "tsx watch src/server.ts",
+        "build": "tsc -p tsconfig.json",
+        "start": "node dist/server.js",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "lint": "echo 'no lint set for api'",
+        "prisma:generate": "prisma generate",
+        "prisma:migrate": "prisma migrate dev --name init",
+        "prisma:studio": "prisma studio"
+    },
+    "dependencies": {
+        "@diario/types": "*",
+        "@prisma/client": "^5.19.1",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "multer": "^1.4.5-lts.1",
+        "pino": "^9.3.2",
+        "pino-http": "^10.3.0",
+        "zod": "^3.23.8"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "@types/multer": "^1.4.12",
+        "@types/node": "^22.5.4",
+        "prisma": "^5.19.1",
+        "tsx": "^4.19.1",
+        "typescript": "^5.5.4"
+    }
+}

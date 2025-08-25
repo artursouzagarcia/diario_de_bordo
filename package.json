@@ -1,0 +1,28 @@
+{
+    "name": "diario-de-bordo-monorepo",
+    "private": true,
+    "version": "0.1.0",
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "build": "npm run -ws build",
+        "dev": "npm run -w apps/web dev",
+        "dev:api": "npm run -w apps/api dev",
+        "dev:web": "npm run -w apps/web dev",
+        "lint": "npm run -ws lint",
+        "typecheck": "npm run -ws typecheck",
+        "test": "npm run -ws test",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "husky": "^9.1.6",
+        "lint-staged": "^15.2.9",
+        "prettier": "^3.3.3",
+        "typescript": "^5.5.4"
+    },
+    "lint-staged": {
+        "**/*.{ts,tsx,js,jsx,json,css,md}": "prettier --write"
+    }
+}

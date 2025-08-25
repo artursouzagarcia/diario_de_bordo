@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "allowJs": false,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@diario/types": ["../../packages/types/src"]
+    }
+  },
+  "include": ["src", "vite-env.d.ts"],
+  "references": [
+    { "path": "../../packages/types" }
+  ]
+}

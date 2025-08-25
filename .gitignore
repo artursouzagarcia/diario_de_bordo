@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.turbo/
+.next/
+.cache/
+coverage/
+*.log
+.env
+apps/api/uploads/
+apps/api/dev.db
+apps/api/prisma/dev.db

@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Conversation {
+  id             String                 @id @default(cuid())
+  title          String                 @default("")
+  createdAt      DateTime               @default(now())
+  updatedAt      DateTime               @updatedAt
+  lastMessageAt  DateTime?
+  messages       Message[]
+  files          File[]
+  summaries      ConversationSummary[]
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  conversationId String
+  role           String
+  content        String
+  type           String
+  createdAt      DateTime     @default(now())
+  files          File[]
+
+  @@index([conversationId, createdAt])
+}
+
+model ConversationSummary {
+  id             String       @id @default(cuid())
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  conversationId String
+  summary        String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}
+
+model File {
+  id             String       @id @default(cuid())
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  conversationId String
+  name           String
+  mimeType       String
+  size           Int
+  url            String?
+  createdAt      DateTime     @default(now())
+  message        Message?     @relation(fields: [messageId], references: [id])
+  messageId      String?
+
+  @@index([conversationId, createdAt])
+}

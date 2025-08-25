@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Typecheck monorepo",
+			"type": "shell",
+			"command": "npm run typecheck",
+			"group": "build"
+		},
+		{
+			"label": "Typecheck monorepo",
+			"type": "shell",
+			"command": "npm run typecheck",
+			"group": "build"
+		}
+	]
+}
